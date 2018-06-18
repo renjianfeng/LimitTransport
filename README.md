@@ -14,10 +14,11 @@ Babylonjs and cannonjs realize physical pickup driving
 ```javascript  
  npm start
 ```
-* 3.打包压缩成一个文件：
+* 3.打包压缩成发布需要的文件（合并js和资源文件到released文件夹）：
 ```javascript  
  npm run pub
 ```
+* 4.将released文件下的所有文件上传到您的服务器；
 ## 技术和素材来源
 * 本作为实验项目，非盈利，作品部分资源来源于网络，技术全部采用开源技术。
 * 游戏引擎：
