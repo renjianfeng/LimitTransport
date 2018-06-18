@@ -1,8 +1,11 @@
-# LimitTransport
+# LimitTransport(极限驾驶)
 Babylonjs and cannonjs realize physical pickup driving
-
-## 1.技术和素材来源
-* 使用babylonjs和connonjs完成的模拟驾驶类游戏，您可以通过选择不同的天气进行真实环境模拟。本作为实验项目，非盈利，作品部分资源来源于网络，技术全部采用开源技术。
+## 1.介绍
+* 使用babylonjs和connonjs完成的模拟驾驶类游戏，您可以通过选择不同的天气进行真实环境模拟。
+* 通过TypeScript构建，通过webpack进行项目工程化管理。
+* Github Page:https://renjianfeng.github.io/LimitTransport/released/
+## 2.技术和素材来源
+* 本作为实验项目，非盈利，作品部分资源来源于网络，技术全部采用开源技术。
 * 游戏引擎：
 * Babylonjs：http://www.babylonjs.com/
 * 物理引擎：
@@ -12,8 +15,23 @@ Babylonjs and cannonjs realize physical pickup driving
 * 地形使用unity3d创建。
 * 如果上面的部分素材侵犯了您的相关权益，请联系我删除。我的个人邮箱：hi@renjianfeng.com
 
-## 2.截图欣赏
-![Alt text](/src/Resource/gameScene/images/ui/after.jpg)
+## 3.法律
+* 本作设计技术细节的部分完全开源并且允许商业用途，但不对游戏内容部分的素材来源负责，为了安全，您可以将本作的游戏素材替换您拥有完全控制版权的素材文件。
+
+## 4.技术
+* 1.安装依赖：
+```javascript  
+ npm install
+```
+* 2.开发环境：
+```javascript  
+ npm start
+```
+* 3.打包压缩成一个文件：
+```javascript  
+ npm run pub
+```
+
+## 5.部分截图欣赏
 ![Alt text](/src/Resource/gameScene/images/ui/night.jpg)
 ![Alt text](/src/Resource/gameScene/images/ui/rain.jpg)
-![Alt text](/src/Resource/gameScene/images/ui/sun.jpg)
