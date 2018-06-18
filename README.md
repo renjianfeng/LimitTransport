@@ -11,3 +11,9 @@ Babylonjs and cannonjs realize physical pickup driving
 * 爱给网：http://www.aigei.com/s?q=jeep&type=3d
 * 地形使用unity3d创建。
 * 如果上面的部分素材侵犯了您的相关权益，请联系我删除。我的个人邮箱：hi@renjianfeng.com
+
+## 2.截图欣赏
+![Alt text](/src/Resource/gameScene/images/ui/after.jpg)
+![Alt text](/src/Resource/gameScene/images/ui/night.jpg)
+![Alt text](/src/Resource/gameScene/images/ui/rain.jpg)
+![Alt text](/src/Resource/gameScene/images/ui/sun.jpg)
