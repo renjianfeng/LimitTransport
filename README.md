@@ -32,7 +32,3 @@ Babylonjs and cannonjs realize physical pickup driving
 ```javascript  
  npm run pub
 ```
-
-## 5.部分截图欣赏
-![Alt text](/src/Resource/gameScene/images/ui/night.jpg)
-![Alt text](/src/Resource/gameScene/images/ui/rain.jpg)
