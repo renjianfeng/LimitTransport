@@ -42,8 +42,8 @@ export class ExGameSceneCon extends GameScenes{
             sceneFilename:AssetsManager.ins.resourceObject["models"]["gameScene"]["wheel"].sceneFilename
         },
         {
-            rootUrl:AssetsManager.ins.resourceObject["models"]["gameScene"]["map"].rootUrl,
-            sceneFilename:AssetsManager.ins.resourceObject["models"]["gameScene"]["map"].sceneFilename
+            rootUrl:AssetsManager.ins.resourceObject["models"]["gameScene"]["map"+localStorage.map].rootUrl,
+            sceneFilename:AssetsManager.ins.resourceObject["models"]["gameScene"]["map"+localStorage.map].sceneFilename
         }
     ]
 
@@ -53,6 +53,20 @@ export class ExGameSceneCon extends GameScenes{
     }
 
     protected resetGame(){
+        this.importMeshes=[
+            {
+                rootUrl:AssetsManager.ins.resourceObject["models"]["gameScene"]["car"].rootUrl,
+                sceneFilename:AssetsManager.ins.resourceObject["models"]["gameScene"]["car"].sceneFilename
+            },
+            {
+                rootUrl:AssetsManager.ins.resourceObject["models"]["gameScene"]["wheel"].rootUrl,
+                sceneFilename:AssetsManager.ins.resourceObject["models"]["gameScene"]["wheel"].sceneFilename
+            },
+            {
+                rootUrl:AssetsManager.ins.resourceObject["models"]["gameScene"]["map"+localStorage.map].rootUrl,
+                sceneFilename:AssetsManager.ins.resourceObject["models"]["gameScene"]["map"+localStorage.map].sceneFilename
+            }
+        ]
         this.ImportMeshes(this.importMeshes,(newMeshes)=>{
             ExGameScene.ins.creatScene()
             var scene=SceneManager.ins.scene;
@@ -65,7 +79,7 @@ export class ExGameSceneCon extends GameScenes{
 
             scene.meshes.forEach((mesh)=>{
                 this.display.shadowGenerator.getShadowMap().renderList.push(mesh);
-                mesh.receiveShadows = true;
+              //  mesh.receiveShadows = true;
             })
 
 
@@ -121,7 +135,8 @@ export class ExGameSceneCon extends GameScenes{
             useMaterial.setCarMaterial()
 
             //创建物理世界
-            let cannonCreateObj=new CannonCreateObj(SceneManager.ins.scene,this.display.shadowGenerator)
+            let cannonCreateObj=new CannonCreateObj(SceneManager.ins.scene,this.display.shadowGenerator,
+                {x:parseInt(localStorage.car_x),y:parseInt(localStorage.car_y),z:parseInt(localStorage.car_z),})
             cannonCreateObj.HeightMap(ground);
             cannonCreateObj.carCtrl();
 
@@ -284,6 +299,14 @@ export class ExGameSceneCon extends GameScenes{
         this.scene.getMeshByName("car")._children.forEach((mesh)=>{
             this.display.water.addToRenderList(mesh);
         })
+
+        if(localStorage.map=="1"){
+            this.display.waterMesh.position.y=123;
+        }
+
+        if(localStorage.map=="2"){
+            this.display.waterMesh.position.y=43;
+        }
     }
 
 

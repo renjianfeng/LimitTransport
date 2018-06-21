@@ -55,13 +55,29 @@ export class ExGameSceneGui{
                 cursor: pointer;
                 transform: scale(1);
             }
-            .button-reset:active{
+            .about-btn{
+                position: fixed;
+                bottom: 20px;
+                right:20px;
+                background: #349ccd;
+                color: #ffffff;
+                border: 0px solid ;
+                font-size: 18px;
+                padding: 8px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transform: scale(1);
+            }
+            button:active{
               transform: scale(0.8);
             }
             </style>
             
             <button class="button-view" id="button_view">View</button>
-            <button class="button-reset" id="button_reset">Reset</button>
+            <button class="button-reset" id="button_reset">Back</button>
+            <div>
+            <button class="about-btn" onclick="window.location.href='https://github.com/renjianfeng/LimitTransport'">About The Author And Github</button>
+            </div>
         `;
 
         var viewNode = document.createElement("div");

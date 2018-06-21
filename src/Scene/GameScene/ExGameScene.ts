@@ -93,7 +93,7 @@ export class ExGameScene{
         /**
          * 天空盒子
          * */
-        var skybox = BABYLON.Mesh.CreateBox("skyBox", 600.0, this.scene);
+        var skybox = BABYLON.Mesh.CreateBox("skyBox", 1000.0, this.scene);
         var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", this.scene);
         skyboxMaterial.backFaceCulling = false;
         skyboxMaterial.reflectionTexture =  AssetsManager.ins.resourceObject["cubeTextures"]["gameScene"]["skybox"].clone()
@@ -204,7 +204,7 @@ export class ExGameScene{
 
         // 水材质
         var waterMesh = BABYLON.Mesh.CreateGround("waterMesh", 512, 512, 32, this.scene, false);
-        waterMesh.position.y=43;
+        waterMesh.position.y=123;
         var water = new BABYLON["WaterMaterial"]("water", this.scene, new BABYLON.Vector2(512, 512));
         water.backFaceCulling = true;
         water.bumpTexture = new BABYLON.Texture(AssetsManager.ins.resourceObject["textures"]["gameScene"]["waterbump"], this.scene);

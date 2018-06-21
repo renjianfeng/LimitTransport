@@ -26,6 +26,10 @@ export class Before{
 
 
     public update(){
+        localStorage.map="1"
+        localStorage.car_x=0;
+        localStorage.car_y=151;
+        localStorage.car_z=226;
         AssetsManager.ins.resourceData=ResourceCon.ins.resource;
         AssetsManager.ins.loadFile(["gameScene"],SceneManager.ins.scene,function(){
             this.initModule()

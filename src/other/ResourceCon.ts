@@ -23,7 +23,7 @@ export class ResourceCon {
                 {name:"rain", filePath:this.pathFirst+"src/Resource/gameScene/binarys/", fileName:"rain.mp4"},
             ],
             images:[
-                {name:"test", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"cursor_default.png",},
+               /*  {name:"test", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"cursor_default.png",},
                 {name:"beginBtn", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"beginBtn.png",},
                 {name:"bg", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"bg.jpg",},
                 {name:"close", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"close.png",},
@@ -34,7 +34,7 @@ export class ResourceCon {
                 {name:"btn_py", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"btn_py.png",},
                 {name:"btn_dq", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"btn_dq.png",},
                 {name:"prizeBtn", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"prizeBtn.png",},
-                {name:"ruleBtn", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"ruleBtn.png",},
+                {name:"ruleBtn", filePath:this.pathFirst+"src/Resource/gameScene/images/", fileName:"ruleBtn.png",}, */
 
                 //光晕
                 {name:"Bphl4qj", filePath:this.pathFirst+"src/Resource/gameScene/textures/light/", fileName:"Bphl4qj.png"},
@@ -50,11 +50,15 @@ export class ResourceCon {
                 {name:"night", filePath:this.pathFirst+"src/Resource/gameScene/images/ui/", fileName:"night.jpg"},
                 {name:"rain", filePath:this.pathFirst+"src/Resource/gameScene/images/ui/", fileName:"rain.jpg"},
                 {name:"sun", filePath:this.pathFirst+"src/Resource/gameScene/images/ui/", fileName:"sun.jpg"},
+                {name:"b1", filePath:this.pathFirst+"src/Resource/gameScene/images/ui/", fileName:"b1.jpg"},
+                {name:"b2", filePath:this.pathFirst+"src/Resource/gameScene/images/ui/", fileName:"b2.jpg"},
+                {name:"logo", filePath:this.pathFirst+"src/Resource/gameScene/images/ui/", fileName:"logo.png"},
             ],
             models:[
                 {name:"car", filePath:this.pathFirst+"src/Resource/gameScene/models/car2/", fileName:"car20.babylon"},
                 {name:"wheel", filePath:this.pathFirst+"src/Resource/gameScene/models/car2/", fileName:"wheel.babylon"},
-                {name:"map", filePath:this.pathFirst+"src/Resource/gameScene/models/height_m2/", fileName:"height_m2.babylon"},
+                {name:"map1", filePath:this.pathFirst+"src/Resource/gameScene/models/height_m2/", fileName:"height_m15.babylon"},
+                {name:"map2", filePath:this.pathFirst+"src/Resource/gameScene/models/height_m2/", fileName:"height_m2.babylon"},
             ],
             textures:[
                 {name:"grass", filePath:this.pathFirst+"src/Resource/gameScene/textures/", fileName:"grass.png"},

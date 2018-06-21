@@ -39,15 +39,20 @@ export class CannonCreateObj {
     private  maxSteerVal = 0.5;
 
     //最大动力
-    private  maxForce = 1000;
+    private  maxForce = 1500;
 
     //重力
     private  gravityY = -19;
 
+    private  carposition;
 
-    constructor(scene,shadowGenerator){
+
+    constructor(scene,shadowGenerator,carposition){
         this.scene=scene;
         this.shadowGenerator=shadowGenerator;
+        this.carposition=carposition;
+
+        console.log(this.carposition)
     }
 
 
@@ -169,7 +174,7 @@ export class CannonCreateObj {
         this.chassisShape = new CANNON.Box(sizeXYZ);
         this.chassisBody = new CANNON.Body({ mass: 500 });
         this.chassisBody.addShape(this.chassisShape);
-        this.chassisBody.position.set(0, 50, 140);
+        this.chassisBody.position.set(this.carposition.x, this.carposition.y, this.carposition.z);
         this.chassisBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);
         this.chassisBody.angularVelocity.set(0, 0, 0.2);
         this.babylonCarBox = this.createBabylonChassisBody(this.chassisBody);
@@ -191,7 +196,7 @@ export class CannonCreateObj {
             //console.log(wheel);
             var cylinderShape = new CANNON.Cylinder(wheel.radius, wheel.radius, wheel.radius / 2, 20);
             var wheelBody = new CANNON.Body({
-                mass: 300
+                mass: 800
             });
             wheelBody.type = CANNON.Body.KINEMATIC;
 
