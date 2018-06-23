@@ -53,6 +53,7 @@ export class ExGameSceneCon extends GameScenes{
     }
 
     protected resetGame(){
+
         this.importMeshes=[
             {
                 rootUrl:AssetsManager.ins.resourceObject["models"]["gameScene"]["car"].rootUrl,
@@ -67,6 +68,8 @@ export class ExGameSceneCon extends GameScenes{
                 sceneFilename:AssetsManager.ins.resourceObject["models"]["gameScene"]["map"+localStorage.map].sceneFilename
             }
         ]
+        SceneManager.ins.engine.displayLoadingUI();
+        SceneManager.ins.engine.loadingUIText = "Initializing...";
         this.ImportMeshes(this.importMeshes,(newMeshes)=>{
             ExGameScene.ins.creatScene()
             var scene=SceneManager.ins.scene;
@@ -79,7 +82,7 @@ export class ExGameSceneCon extends GameScenes{
 
             scene.meshes.forEach((mesh)=>{
                 this.display.shadowGenerator.getShadowMap().renderList.push(mesh);
-              //  mesh.receiveShadows = true;
+                //mesh.receiveShadows = true;
             })
 
 
@@ -98,15 +101,17 @@ export class ExGameSceneCon extends GameScenes{
             scene.getMeshByName("car").rotation=new BABYLON.Vector3(-Math.PI*1,Math.PI*0.5,Math.PI*0.5)
             scene.getMeshByName("car").position=new BABYLON.Vector3(1.7,0,0.6)
 
-           /* this.scene.getMeshByName("car")._children.forEach((mesh)=>{
-                if(mesh.material.subMaterials){
-                    mesh.material.subMaterials.forEach((material)=>{
-                        material.backFaceCulling=false;
-                    })
-                }else{
-                    mesh.material.backFaceCulling=false;
+            this.scene.getMeshByName("car")._children.forEach((mesh)=>{
+                if(mesh.material){
+                    if(mesh.material.subMaterials){
+                        mesh.material.subMaterials.forEach((material)=>{
+                            material.backFaceCulling=false;
+                        })
+                    }else{
+                       // mesh.material.backFaceCulling=false;
+                    }
                 }
-            })*/
+            })
 
 
 
@@ -147,7 +152,11 @@ export class ExGameSceneCon extends GameScenes{
                     this.scene.getMeshByName("carBox").position.y+1,
                     this.scene.getMeshByName("carBox").position.z-0
                 );
+
             },500)
+
+
+         //   this.display.lighting.parent=this.scene.getMeshByName("carBox")
 
 
             //湖水
@@ -172,6 +181,7 @@ export class ExGameSceneCon extends GameScenes{
                 var gl = new BABYLON.GlowLayer("glow", scene);
                 gl.addIncludedOnlyMesh(this.scene.getMeshByName("Jeep GC-P 25"))
                 gl.addIncludedOnlyMesh(this.scene.getMeshByName("Jeep GC-P 20"))
+                gl.addIncludedOnlyMesh(this.scene.getMeshByName("lighting"))
 
                 this.display.postProcess.depth=0.08
                 this.display.postProcess1.depth=0.08
@@ -193,6 +203,7 @@ export class ExGameSceneCon extends GameScenes{
                 var gl = new BABYLON.GlowLayer("glow", scene);
                /* gl.addIncludedOnlyMesh(this.scene.getMeshByName("Jeep GC-P 25"))*/
                 gl.addIncludedOnlyMesh(this.scene.getMeshByName("Jeep GC-P 20"))
+                gl.addIncludedOnlyMesh(this.scene.getMeshByName("lighting"))
 
                 this.scene.getMeshByName("Jeep GC-P 25").material.alpha=0.3;
 
@@ -276,6 +287,11 @@ export class ExGameSceneCon extends GameScenes{
                 this.viewCtrl(e)
             });
 
+
+            setTimeout(()=>{
+                SceneManager.ins.engine.hideLoadingUI();
+            },500)
+
         })
     }
 
@@ -317,16 +333,26 @@ export class ExGameSceneCon extends GameScenes{
     private setLightning():void{
         setInterval(()=>{
             this.display.light3.intensity = 2;
+            this.scene.getMeshByName("lighting").visibility=2
+            this.display.lighting.position.y=this.scene.getMeshByName("carBox").absolutePosition.y+100;
+            this.display.lighting.position.z=Math.random()*600-300;
+            this.display.lighting.position.x=Math.random()*600-300;
+
             setTimeout(()=>{
                 this.display.light3.intensity = 0.3;
+                this.scene.getMeshByName("lighting").visibility=0
             },100)
 
             setTimeout(()=>{
                 this.display.light3.intensity = 1;
+                this.display.lighting.position.z=Math.random()*600-300;
+                this.display.lighting.position.x=Math.random()*600-300;
+                this.scene.getMeshByName("lighting").visibility=1
             },500)
 
             setTimeout(()=>{
                 this.display.light3.intensity = 0.3;
+                this.scene.getMeshByName("lighting").visibility=0
             },600)
         },6000)
     }

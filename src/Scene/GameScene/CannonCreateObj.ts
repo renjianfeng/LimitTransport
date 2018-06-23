@@ -42,7 +42,7 @@ export class CannonCreateObj {
     private  maxForce = 1500;
 
     //重力
-    private  gravityY = -19;
+    private  gravityY = -26;
 
     private  carposition;
 
@@ -74,7 +74,7 @@ export class CannonCreateObj {
     };
 
     //重力
-    private  gravity = new BABYLON.Vector3(0, -16, 0);
+    private  gravity = new BABYLON.Vector3(0, this.gravityY, 0);
 
     public HeightMap(object, pointDepth?:any){
         var pos = object.getVerticesData(BABYLON.VertexBuffer.PositionKind);

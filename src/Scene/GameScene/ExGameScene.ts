@@ -2,6 +2,8 @@
 import {AssetsManager} from "../../public/index"
 import {SceneManager} from "../../public/index"
 import {WeatherState} from "../../public/index";
+import Texture = BABYLON.Texture;
+import Color3 = BABYLON.Color3;
 
 export class ExGameScene{
 
@@ -107,11 +109,17 @@ export class ExGameScene{
 
 
         var terrainMaterial = new BABYLON["TerrainMaterial"]("terrainMaterial", this.scene);
-        terrainMaterial.mixTexture = AssetsManager.ins.resourceObject["textures"]["gameScene"]["maptr"].clone()
+
+        if(localStorage.map=="1"){
+            terrainMaterial.mixTexture = AssetsManager.ins.resourceObject["textures"]["gameScene"]["maptr2"].clone()
+        }else{
+            terrainMaterial.mixTexture = AssetsManager.ins.resourceObject["textures"]["gameScene"]["maptr"].clone()
+        }
+
         terrainMaterial.diffuseTexture1 = AssetsManager.ins.resourceObject["textures"]["gameScene"]["grass"].clone()
         terrainMaterial.diffuseTexture1.uScale=20
         terrainMaterial.diffuseTexture1.vScale=20
-        terrainMaterial.diffuseTexture2 = AssetsManager.ins.resourceObject["textures"]["gameScene"]["ground"].clone()
+        terrainMaterial.diffuseTexture2 = AssetsManager.ins.resourceObject["textures"]["gameScene"]["grass"].clone()
         terrainMaterial.diffuseTexture2.uScale=20
         terrainMaterial.diffuseTexture2.vScale=20
         terrainMaterial.diffuseTexture3 = AssetsManager.ins.resourceObject["textures"]["gameScene"]["ground"].clone()
@@ -199,6 +207,22 @@ export class ExGameScene{
         light4.projectionTexture = new BABYLON.Texture(AssetsManager.ins.resourceObject["textures"]["gameScene"]["stainedGlass"], this.scene);
 
 
+
+        var lighting = BABYLON.Mesh.CreateGround("lighting", 200, 200, 0, this.scene);
+        lighting.rotation.z=-Math.PI*0.5;
+        lighting.billboardMode=2
+       // lighting.isVisible=false;
+
+        var lightingMaterial=new BABYLON.StandardMaterial("lightingMaterial",this.scene)
+      //  lightingMaterial.emissiveTexture=new Texture(AssetsManager.ins.resourceObject["textures"]["gameScene"]["lighting"], this.scene)
+
+      //  lightingMaterial.alphaMode=2;
+
+        lighting.material=lightingMaterial;
+        lighting.visibility=0;
+
+        lighting.rotation.y=-Math.PI*0.5
+
         var lightLook = BABYLON.Mesh.CreateGround("ground1", 3, 3, 0, this.scene);
         lightLook.isVisible=false;
 
@@ -249,6 +273,7 @@ export class ExGameScene{
             postProcess:postProcess,
             postProcess1:postProcess1,
             lensFlareSystem3:lensFlareSystem3,
+            lighting:lighting,
         }
 
         console.log(this.display)

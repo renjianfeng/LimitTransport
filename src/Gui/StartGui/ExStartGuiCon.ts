@@ -72,28 +72,13 @@ export class ExStartGuiCon extends StartGui{
             e["path"][0].setAttribute("class","we-active")
         })
 
-        document.getElementById("GAME_BG").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["b1"].src+")"
+       // document.getElementById("GAME_BG").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["map1"].src+")"
         document.getElementById("LOGO").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["logo"].src+")"
 
-        this.doEvents["MAP_LIST"]==document.getElementById("MAP_LIST").addEventListener("change",(e)=>{
-          document.getElementById("MAP_LIST")["value"];
-         var _map=eval('(' + (document.getElementById("MAP_LIST")["value"]) + ')');
-          console.log(_map);
-          localStorage.map=_map.map;
-         // localStorage.car={x:2,y:0,z:0};
-          localStorage.car_x=parseInt(_map.carposition.x);
-          localStorage.car_y=parseInt(_map.carposition.y);
-          localStorage.car_z=parseInt(_map.carposition.z);
-          if(_map.map=="1"){
-            document.getElementById("GAME_BG").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["b1"].src+")"
-          }
+        this.mapReset()
 
-          if(_map.map=="2"){
-            document.getElementById("GAME_BG").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["b2"].src+")"
-          }
-          console.log(_map.carposition)
-          
-          console.log(localStorage)
+        this.doEvents["MAP_LIST"]==document.getElementById("MAP_LIST").addEventListener("change",(e)=>{
+            this.mapReset()
         })
 
 
@@ -105,7 +90,32 @@ export class ExStartGuiCon extends StartGui{
     }
 
 
-    
+
+    protected mapReset(){
+        document.getElementById("MAP_LIST")["value"];
+        var _map=eval('(' + (document.getElementById("MAP_LIST")["value"]) + ')');
+        console.log(_map);
+        localStorage.map=_map.map;
+        // localStorage.car={x:2,y:0,z:0};
+        localStorage.car_x=parseInt(_map.carposition.x);
+        localStorage.car_y=parseInt(_map.carposition.y);
+        localStorage.car_z=parseInt(_map.carposition.z);
+        if(_map.map=="1"){
+            document.getElementById("GAME_BG").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["map1"].src+")"
+        }
+
+        if(_map.map=="2"){
+            document.getElementById("GAME_BG").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["map2"].src+")"
+        }
+
+        if(_map.map=="3"){
+            document.getElementById("GAME_BG").style.backgroundImage="url("+AssetsManager.ins.resourceObject["images"]["gameScene"]["map3"].src+")"
+        }
+        console.log(_map.carposition)
+
+        console.log(localStorage)
+    }
+
 
     protected onClick_startBtn() {
         super.onClick_startBtn()

@@ -1,3 +1,5 @@
+import {AssetsManager} from "../../public";
+
 export class UseMaterial {
 
     private scene
@@ -73,6 +75,16 @@ export class UseMaterial {
         this.scene.getMeshByName("Jeep GC-P 20").material.emissiveTexture.level=0.1;
         this.scene.getMeshByName("Jeep GC-P 20").material.emissiveColor=new BABYLON.Color3(1,0,0);
 
+
+        this.scene.getMeshByName("lighting").material.emissiveColor=new BABYLON.Color3(1,0,0)
+        this.scene.getMeshByName("lighting").material.diffuseColor=new BABYLON.Color3(1,0,0)
+        this.scene.getMeshByName("lighting").material.diffuseTexture=new BABYLON.Texture(AssetsManager.ins.resourceObject["textures"]["gameScene"]["lighting"], this.scene)
+        this.scene.getMeshByName("lighting").material.opacityTexture=new BABYLON.Texture(AssetsManager.ins.resourceObject["textures"]["gameScene"]["lighting"], this.scene)
+        this.scene.getMeshByName("lighting").material.emissiveTexture=new BABYLON.Texture(AssetsManager.ins.resourceObject["textures"]["gameScene"]["lighting"], this.scene)
+        this.scene.getMeshByName("lighting").material.emissiveTexture.level=1;
+        this.scene.getMeshByName("lighting").material.backFaceCulling=false;
+        this.scene.getMeshByName("lighting").material.disableLighting=true;
+        this.scene.getMeshByName("lighting").material.fogEnabled=false;
         console.log("灯光")
         console.log(this.scene.getMaterialByName("carlight"))
 

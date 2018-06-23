@@ -171,8 +171,9 @@ export class ExStartGui{
                 <div class="map-list">
                     <lable>
                     MAP : <select id="MAP_LIST" name="mapList">
-                            <option value="{map:1,carposition:{ x:0,y:151,z:226}}">Craggy Canyon</option>
-                            <option value="{map:2,carposition:{ x:0,y:50,z:140}}">Crazy To Drive</option>
+                            <option value="{map:1,carposition:{ x:0,y:-60,z:160}}">The hills</option>
+                            <option value="{map:2,carposition:{ x:0,y:151,z:226}}">Cliff valley</option>
+                            <option value="{map:3,carposition:{ x:0,y:50,z:140}}">The lakes</option>
                         </select>
                     </lable>
                
