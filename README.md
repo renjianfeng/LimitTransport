@@ -4,7 +4,7 @@ Babylonjs and cannonjs realize physical pickup driving
 ## 介绍
 * 使用babylonjs和connonjs完成的模拟驾驶类游戏，您可以通过选择不同的天气进行真实环境模拟。
 * 通过TypeScript构建，通过webpack进行项目工程化管理。
-* Github Page：https://renjianfeng.github.io/LimitTransport/released/
+* Github Page：https://renjianfeng.github.io/LimitTransport/released/index.html
 * 开始游戏：http://rally.xidayun.com/
 ## 快速开始
 * 1.安装依赖：
