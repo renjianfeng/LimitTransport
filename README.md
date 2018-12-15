@@ -1,4 +1,4 @@
-# LimitTransport(极限驾驶)
+# LimitTransport
 Babylonjs and cannonjs realize physical pickup driving
 ![Alt text](/src/Resource/gameScene/images/ui/title.jpg)
 ## 介绍
